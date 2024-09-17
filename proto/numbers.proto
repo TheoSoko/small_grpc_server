@@ -1,0 +1,18 @@
+syntax = "proto3";
+package proto;
+option go_package = "small_grpc_server/proto"; 
+
+service maxNumber {
+   rpc registerNumber(stream Number) returns (stream Max) {}
+}
+
+message Number {
+    int32 ID = 1;
+    int32 Num = 2;
+}
+
+message Max {
+    int32 MessageID = 1;
+    int32 Max = 2;
+}
+
